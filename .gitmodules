@@ -1,0 +1,3 @@
+[submodule "lib/sysvars"]
+	path = lib/sysvars
+	url = https://git.xpablo.cz/xPablo.cz/sysvars.git
