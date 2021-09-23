@@ -1,34 +1,4 @@
-#include "SPIFFS.h"
- 
-void setup() {
-  Serial.begin(115200);
-
-  // Launch SPIFFS file system 
-  if(!SPIFFS.begin()){
-    Serial.println("An Error has occurred while mounting SPIFFS");
-    return;
-  }
-
-  // Open test file in read only mode 
-  File file = SPIFFS.open("/test.txt", "r");
-  if(!file){
-    // File not found | le fichier de test n'existe pas
-    Serial.println("Failed to open test file");
-    return;
-  }
-
-  // Display file content on serial port 
-  Serial.println();
-  Serial.println("Read test.txt file content:");
-  while(file.available()){
-    Serial.write(file.read());
-  }
-  file.close();
-}
- 
-void loop() {
-}
-/*#if defined(ARDUINO_ARCH_ESP8266)
+#if defined(ARDUINO_ARCH_ESP8266)
 #  include <ESP8266WiFi.h>
 #  include <ESP8266WebServer.h>
 #  include <ESP8266NetBIOS.h>
@@ -168,4 +138,4 @@ void loop()
 {
     wwwserver.handleClient(); // osetrujeme praci serveru
     ArduinoOTA.handle();
-}*/
+}
